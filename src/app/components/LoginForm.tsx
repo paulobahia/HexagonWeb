@@ -14,8 +14,8 @@ const LoginForm = () => {
         })
     }
     return (
-        <div className="flex-1 items-center justify-start flex">
-            <div className="bg-background-secondary rounded-lg overflow-hidden shadow-xl max-w-md w-full p-12">
+        <div className="lg:flex-1 mt-52 items-center lg:justify-start justify-center flex">
+            <div className="bg-background-secondary rounded-lg overflow-hidden shadow-xl max-w-sm w-full p-10 sm:p-12 sm:max-w-md">
                 <form className="flex flex-col gap-2 mt-1">
                     <div className="relative">
                         <span className="absolute inset-y-0 left-1 flex items-center pl-2">
