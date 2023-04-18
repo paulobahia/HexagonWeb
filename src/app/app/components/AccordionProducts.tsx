@@ -7,7 +7,6 @@ function AccordionProducts({ sideBar }: { sideBar: boolean }) {
     const router = useRouter()
     const [openAccordion, setOpenAccordion] = useState(false)
     const goToProducts = () => {
-        router.push('app/products')
         setOpenAccordion((current) => !current)
     }
     return (
@@ -28,15 +27,15 @@ function AccordionProducts({ sideBar }: { sideBar: boolean }) {
             <section className={`flex flex-col ${sideBar ? "px-9 py-1" : "items-center"}  justify-between  gap-y-3 rounded-lg overflow-hidden transition-[max-height] duration-500 ease-in delay-0 ${openAccordion ? "max-h-40" : "max-h-0"}`} >
                 <div className="flex items-center gap-x-3 py-1 cursor-pointer">
                     <div className="w-2 h-2 bg-success-light rounded-full" />
-                    {sideBar && <span>Criar</span>}
+                    {sideBar && <span>Overview</span>}
                 </div>
                 <div className="flex items-center gap-x-3 py-1 cursor-pointer">
                     <div className="w-2 h-2 bg-danger-light rounded-full" />
-                    {sideBar && <span>Editar</span>}
+                    {sideBar && <span>Criar</span>}
                 </div>
                 <div className="flex items-center gap-x-3 py-1 cursor-pointer">
                     <div className="w-2 h-2 bg-warning-light rounded-full" />
-                    {sideBar && <span>Remover</span>}
+                    {sideBar && <span>Editar</span>}
                 </div>
             </section>
         </>
