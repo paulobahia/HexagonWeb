@@ -14,7 +14,7 @@ const LoginForm = () => {
         })
     }
     return (
-        <div className="lg:flex-1 lg:mt-0 mt-52 items-center lg:justify-start justify-center flex">
+        <div className="lg:flex-1 lg:mt-0 mt-52 items-center lg:justify-start justify-center flex px-3">
             <div className="bg-background-secondary rounded-lg overflow-hidden shadow-xl max-w-sm w-full p-10 sm:p-12 sm:max-w-md">
                 <form className="flex flex-col gap-2 mt-1">
                     <div className="relative">
@@ -46,7 +46,7 @@ const LoginForm = () => {
                 <hr className="my-8 h-0.5 border-t-0 bg-neutral-600 opacity-30" />
                 <div>
                     <div className="flex items-center justify-end gap-x-5">
-                        <p className="text-white font-medium text-sm">Ou entre com</p>
+                        <p className="text-white font-medium text-xs md:text-sm">Ou entre com</p>
                         <button className="bg-background-primary/40 shadow-sm p-3 rounded-md text-white font-semibold flex-1 hover:bg-itens-primary transition-colors">
                             <div className="flex items-center justify-center gap-3">
                                 <Google className="w-5 h-5 text-zinc-200 cursor-pointer" variant="Bulk" />
