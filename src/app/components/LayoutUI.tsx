@@ -2,8 +2,8 @@
 
 import { ArrowLeft2, Logout, Profile2User, Setting2, Warning2, Home } from "iconsax-react"
 import Image from "next/image"
-import { AccordionStock, AccordionProducts } from "../components"
-import logo from '../../assets/logo.png'
+import { AccordionStock, AccordionProducts } from "../(app)/components"
+import logo from '../assets/logo.png'
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
 
@@ -13,7 +13,7 @@ const LayoutUI: React.FC = () => {
     const changeSideBar = () => setOpenSideBar((current) => !current)
 
     const goToHome = () => {
-        router.push('/')
+        router.push('/home')
     }
 
     const goToUsers = () => {

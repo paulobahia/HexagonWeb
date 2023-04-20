@@ -39,7 +39,7 @@ const LoginForm = () => {
                     </a>
                 </div>
                 <div className="flex items-center justify-center mt-5">
-                    <Link href="/app" className="bg-itens-primary p-3 rounded-md text-white text-center font-semibold w-full hover:bg-itens-light transition-colors">
+                    <Link href="/home" className="bg-itens-primary p-3 rounded-md text-white text-center font-semibold w-full hover:bg-itens-light transition-colors">
                         ENTRAR
                     </Link>
                 </div>
