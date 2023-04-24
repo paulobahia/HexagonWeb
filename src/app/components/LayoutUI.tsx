@@ -29,7 +29,7 @@ const LayoutUI: React.FC = () => {
     }
 
     return (
-        <div className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16  ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
+        <div onFocus={()=> console.log("Perdeu o foco")} className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16 fixed ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
             <div className={`w-full bg-background-light shadow flex items-center ${openSideBar ? 'justify-between' : "justify-center"} p-4 border-b border-zinc-400 border-opacity-30`}>
                 {openSideBar && <div className="space-x-2 flex justify-center items-center">
                     <Image src={logo} alt="Logo Hexagon" className="w-10 h-10" />
@@ -49,7 +49,7 @@ const LayoutUI: React.FC = () => {
                             </p>
                             )}
                         {!openSideBar && (
-                            <span className={`absolute left-12 mb-8 rounded-t-lg rounded-br-lg font-medium scale-0 bg-gray-50 p-2 text-xs  text-zinc-800 group-hover:scale-100`}>Home</span>
+                            <span className={`fixed left-12 mb-8 rounded-t-lg rounded-br-lg font-medium scale-0 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Home</span>
                         )}
                     </div>
                     <>
@@ -66,7 +66,7 @@ const LayoutUI: React.FC = () => {
                             </p>
                             )}
                         {!openSideBar && (
-                            <span className={`absolute left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Usuários</span>
+                            <span className={`fixed left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Usuários</span>
                         )}
                     </div>
                 </div>
@@ -82,7 +82,7 @@ const LayoutUI: React.FC = () => {
                             </p>
                             )}
                         {!openSideBar && (
-                            <span className={`absolute left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Reportar</span>
+                            <span className={`fixed left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Reportar</span>
                         )}
                     </div>
                     <div onClick={goToSettings} className={`flex ${!openSideBar && "justify-center"} group items-center gap-2 px-2 py-3 hover:bg-zinc-400/30 rounded-lg transition-all duration-300 ease-in cursor-pointer`}>
@@ -93,13 +93,13 @@ const LayoutUI: React.FC = () => {
                             </p>
                             )}
                         {!openSideBar && (
-                            <span className={`absolute left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Configurações</span>
+                            <span className={`fixed left-12 scale-0 rounded-t-lg rounded-br-lg font-medium mb-8 bg-gray-50 p-2 text-xs text-zinc-800 group-hover:scale-100`}>Configurações</span>
                         )}
                     </div>
                 </div>
             </div>
             {/* <div className="w-full flex flex-1 justify-center items-center">
-                <div className="absolute bottom-0 flex">
+                <div className="fixed bottom-0 flex">
                     <div className="bg-zinc-700/30 hover:bg-zinc-700/20 transition-opacity px-5 py-3 rounded-md flex-1 gap-x-3 flex items-center mb-5 cursor-pointer">
                         <div>
                             <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />

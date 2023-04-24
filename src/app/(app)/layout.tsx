@@ -13,9 +13,7 @@ export default function RootLayout({
       <body className='bg-background-primary'>
         <section className="flex">
           <LayoutUI />
-          <div className="h-screen flex items-center justify-center flex-1 text-white">
-            {children}
-          </div>
+          {children}
         </section>
       </body>
     </html >

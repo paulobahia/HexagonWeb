@@ -7,11 +7,10 @@ import { authUserFormSchema } from '@/app/zod/authUserFormSchema';
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
 const LoginForm = () => {
-    const router = useRouter()
-
-    const [typePassword, setTypePassword] = useState<string>("password")
-
     type AuthUserFormData = z.infer<typeof authUserFormSchema>
+
+    const router = useRouter()
+    const [typePassword, setTypePassword] = useState<string>("password")
 
     const {
         register,
@@ -31,9 +30,9 @@ const LoginForm = () => {
     }
 
     const authUser = (data: any) => {
-        console.log(data)
         // router.push('/home')
     }
+
     return (
         <div className="lg:flex-1 lg:mt-0 mt-52 items-center lg:justify-start justify-center flex px-3">
             <div className="bg-background-secondary rounded-lg overflow-hidden shadow-xl max-w-sm w-full p-10 sm:p-12 sm:max-w-md">
@@ -55,13 +54,13 @@ const LoginForm = () => {
                         </span>
                     </div>
                     {errors.password && <span className='text-danger-base text-xs font-semibold'>{errors.password.message}</span>}
-                    <div className="text-itens-primary font-semibold text-sm mt-2">
+                    <div className="text-itens-primary font-semibold text-sm">
                         <a>
                             Esqueci minha senha
                         </a>
                     </div>
                     <div className="flex items-center justify-center mt-5">
-                        <button type='submit' onClick={authUser} className="bg-itens-primary p-3 rounded-md text-white text-center font-semibold w-full hover:bg-itens-light transition-colors">
+                        <button type='submit' onClick={authUser} className={`bg-itens-primary p-3 rounded-md text-white text-center font-semibold w-full hover:bg-itens-light transition-colors ${errors.email || errors.password ? 'opacity-50 cursor-not-allowed' : null}`}>
                             ENTRAR
                         </button>
                     </div>
