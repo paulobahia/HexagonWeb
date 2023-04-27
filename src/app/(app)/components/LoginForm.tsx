@@ -3,7 +3,7 @@ import { Google, User, Lock, Eye, EyeSlash } from 'iconsax-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { authUserFormSchema } from '@/app/zod/authUserFormSchema';
+import { authUserFormSchema } from '@/utils/zod/authUserFormSchema'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
 const LoginForm = () => {
