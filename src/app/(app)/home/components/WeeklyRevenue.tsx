@@ -115,14 +115,10 @@ const WeeklyRevenue = () => {
     return (
         <Card extra="flex flex-col w-full rounded-3xl py-6 px-2 text-center">
             <div className="mb-auto flex items-center justify-between px-6">
-                <h2 className="text-lg font-bold text-white">
+                <h2 className="text-2xl font-bold text-white">
                     Receita semanal
                 </h2>
-                <button className="!linear z-[1] flex items-center justify-center rounded-lg bg-lightPrimary p-2 text-brand-500 !transition !duration-200 hover:bg-white/10 bg-zinc-100/5">
-                    <Chart1 className="h-6 w-6" color="#4c48ff" variant="Bulk" />
-                </button>
             </div>
-
             <div className="md:mt-16 lg:mt-0">
                 <div className="h-[250px] w-full xl:h-[350px]">
                     <BarChart

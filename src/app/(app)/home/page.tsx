@@ -2,6 +2,7 @@ import Widget from "@/components/widget/Widget";
 import { Calendar, Card, Category, Chart1, Document, Moneys } from "iconsax-react";
 import TotalSpent from "./components/TotalSpent";
 import WeeklyRevenue from "./components/WeeklyRevenue";
+import DailyTraffic from "./components/DailyTraffic";
 
 export default function Home() {
   return (
@@ -41,6 +42,10 @@ export default function Home() {
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <TotalSpent />
         <WeeklyRevenue />
+      </div>
+      <div className="mt-5 grid grid-cols-1 gap-5 rounded-[20px] lg:grid-cols-2 xl:grid-cols-4">
+        <DailyTraffic />
+        {/* <PieChartCard /> */}
       </div>
     </main>
   )

@@ -1,4 +1,4 @@
-import { LayoutUI } from "./components"
+import LayoutUI from "../layouts/LayoutUI"
 export const metadata = {
   title: 'Home | Hexagon',
 }

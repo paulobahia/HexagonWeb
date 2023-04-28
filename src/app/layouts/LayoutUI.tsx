@@ -2,7 +2,8 @@
 
 import { ArrowLeft2, Logout, Profile2User, Setting2, Warning2, Home } from "iconsax-react"
 import Image from "next/image"
-import { AccordionStock, AccordionProducts } from "../(app)/components"
+import AccordionProducts from "./AccordionProducts"
+import AccordionStock from "./AccordionStock"
 import logo from '../assets/logo.png'
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
@@ -29,7 +30,7 @@ const LayoutUI: React.FC = () => {
     }
 
     return (
-        <div onFocus={()=> console.log("Perdeu o foco")} className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16 fixed ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
+        <div onFocus={() => console.log("Perdeu o foco")} className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16 fixed ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
             <div className={`w-full bg-background-light shadow flex items-center ${openSideBar ? 'justify-between' : "justify-center"} p-4 border-b border-zinc-400 border-opacity-30`}>
                 {openSideBar && <div className="space-x-2 flex justify-center items-center">
                     <Image src={logo} alt="Logo Hexagon" className="w-10 h-10" />
