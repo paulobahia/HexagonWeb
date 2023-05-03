@@ -79,7 +79,7 @@ const lineChartOptionsTotalSpent = {
 
 const TotalSpent = () => {
     return (
-        <Card extra="!p-[20px] text-center">
+        <Card extra="p-[20px] text-center">
             <div className="flex justify-between px-5 items-start">
                 <div className="flex flex-col">
                     <p className="text-3xl font-bold text-white">
@@ -99,7 +99,6 @@ const TotalSpent = () => {
                     </button>
                 </div>
             </div>
-
             <div className="flex h-full w-full flex-row justify-between sm:flex-wrap lg:flex-nowrap 2xl:overflow-hidden">
                 <div className="h-full w-full">
                     <LineChart

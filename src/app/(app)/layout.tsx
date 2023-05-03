@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className='bg-background-primary'>
-        <section className="flex">
+        <section className="flex flex-col">
           <LayoutUI />
           {children}
         </section>
