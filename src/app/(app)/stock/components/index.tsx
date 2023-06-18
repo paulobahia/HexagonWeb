@@ -83,7 +83,7 @@ function CardStock(props: any) {
         },
     };
 
-    const [product, setProduct] = useState([])
+    const [product, setProduct]: any = useState([])
 
     const handleItem = (val: any) => {
         console.log(val)
@@ -97,7 +97,7 @@ function CardStock(props: any) {
                     <div className="flex-row flex-1 p-5">
                         <div className="flex justify-between items-center">
                             <div className="flex-row">
-                                <p className="text-xl font-bold text-white">{product?.name}</p>
+                                <p className="text-xl font-bold text-white">{product.name}</p>
                                 <p className="text-xs font-medium text-zinc-400">Pack ID: B3214</p>
                             </div>
                             <div className="flex items-start gap-x-3">
