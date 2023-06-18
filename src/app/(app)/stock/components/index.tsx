@@ -199,12 +199,6 @@ function CardStock(props: any) {
                                 />
                             </div>
                         </Card>
-                        <button className={`bg-background-light mt-3 hidden xl:flex shadow-xl p-2 rounded-md text-white text-center items-center justify-center font-semibold w-full hover:bg-itens-light transition-colors`}>
-                            <Chart variant="Bold" className="font-bold w-5 h-5 text-white mr-1" />
-                            <p>
-                                Estatísticas detalhadas
-                            </p>
-                        </button>
                     </div>
                 </div>
             </div>
