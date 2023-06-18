@@ -8,7 +8,7 @@ const LineChart = (props: any) => {
     return (
         <Chart
             options={options}
-            type="line"
+            type="area"
             width="100%"
             height="100%"
             series={series}
