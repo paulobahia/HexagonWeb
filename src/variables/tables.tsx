@@ -5,7 +5,7 @@ export const TableStock_ROWS = [
         id: "#3",
         name: "Cebola",
         expirationDate: "Mar 18, 2022 ás 08:20",
-        imagePath: "https://s.cornershopapp.com/product-images/3420870.png?versionId=2B8KIaSTGZTmEOGjlbSmegY5MnOjfw6x",
+        imagePath: "https://d2r9epyceweg5n.cloudfront.net/stores/002/296/660/products/cebola-roxa-1200x10081-7d9fec4bfa7d73186416606965456243-640-0.png",
         status: "Bom",
         qtnNow: "72",
         total: "377"
@@ -14,7 +14,7 @@ export const TableStock_ROWS = [
         id: "#5",
         name: "Pimentão",
         expirationDate: "Jun 16, 2022 ás 10:30",
-        imagePath: "https://ibassets.com.br/ib.item.image.big/b-4512879528a74b3697eaf0c7d93dda65.png",
+        imagePath: "https://ibassets.com.br/ib.item.image.big/b-a66b5e98f7c94c2c87286a03d4f41bd0.png",
         status: "Próximo de vencer",
         qtnNow: "200",
         total: "250"

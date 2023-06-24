@@ -1,9 +1,12 @@
 'use client';
 import Card from "@/components/card";
 import { Edit, Trash } from "iconsax-react";
+import { useState } from "react";
 
 function TableStock(props: any) {
     const { columns, rows, eventClick } = props
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const itensPorPagina = 14;
 
     const CheckCondition = (status: string) => {
         switch (status) {
@@ -49,10 +52,14 @@ function TableStock(props: any) {
         }
     }
 
+    const indiceInicial = (paginaAtual - 1) * itensPorPagina;
+    const indiceFinal = indiceInicial + itensPorPagina;
+    const itensDaPagina = rows.slice(indiceInicial, indiceFinal);
+
     return (
-        <div className="flex-1 h-full w-full py-5">
-            <Card className="overflow-hidden h-full w-full">
-                <table className="w-full min-w-max table-auto text-left">
+        <div>
+            <Card className="overflow-hidden flex w-full max-w-screen-2xl">
+                <table className="w-full table-auto text-left">
                     <thead>
                         <tr>
                             {columns.map((head: string) => (
@@ -67,12 +74,12 @@ function TableStock(props: any) {
                         </tr>
                     </thead>
                     <tbody>
-                        {rows.map(({ id, name, expirationDate, status, imagePath, qtnNow, total }: any, index: number) => {
-                            const isLast = index === rows.length - 1;
+                        {itensDaPagina.map(({ id, name, expirationDate, status, imagePath, qtnNow, total }: any, index: number) => {
+                            const isLast = index === itensDaPagina.length - 1;
                             const classes = isLast ? "p-3" : "p-3 border-b border-zinc-300/40";
 
                             return (
-                                <tr onClick={() => eventClick(rows[index])} className="hover:cursor-pointer hover:bg-white/5 " key={name}>
+                                <tr onClick={() => eventClick(itensDaPagina[index])} className="hover:cursor-pointer hover:bg-white/5 " key={name}>
                                     <td className={classes}>
                                         <div className="font-bold text-sm text-zinc-300">
                                             {id}

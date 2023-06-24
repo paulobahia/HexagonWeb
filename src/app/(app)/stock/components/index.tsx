@@ -83,18 +83,25 @@ function CardStock(props: any) {
         },
     };
 
-    const [product, setProduct]: any = useState([])
+    const [product, setProduct]: any = useState({
+        id: "#9",
+        name: "Banana",
+        expirationDate: "Mar 18, 2022 ás 08:20",
+        imagePath: "https://frutasbrasilsul.com.br/wp-content/uploads/banana-nanica.png",
+        status: "Bom",
+        qtnNow: "28",
+        total: "196"
+    })
 
     const handleItem = (val: any) => {
-        console.log(val)
         setProduct(val)
     }
 
     return (
         <>
-            <div className="h-full w-full hidden lg:flex max-w-sm xl:max-w-lg">
-                <div className="fixed rounded-t-[20px] bg-background-secondary h-full w-full hidden lg:flex max-w-sm xl:max-w-lg">
-                    <div className="flex-row flex-1 p-5">
+            <div className="grid grid-cols-4">
+                <div className="col-span-1">
+                    <div className="justify-end p-5 flex flex-col rounded-tl-lg h-full">
                         <div className="flex justify-between items-center">
                             <div className="flex-row">
                                 <p className="text-xl font-bold text-white">{product.name}</p>
@@ -110,11 +117,7 @@ function CardStock(props: any) {
                                 </button>
                             </div>
                         </div>
-                        <div className="mt-5 flex items-center flex-1 justify-end gap-x-1">
-                            <p className="text-sm font-medium text-zinc-300">Total:</p>
-                            <p className="text-sm font-medium text-itens-primary">200 items</p>
-                        </div>
-                        <div className="flex items-center justify-between mt-5">
+                        <div className="flex items-center justify-between mt-3">
                             <div className="flex items-center justify-between gap-x-1">
                                 <div className="bg-success-light p-1 animate-pulse rounded-full" />
                                 <p className="text-sm font-medium text-white">190</p>
@@ -131,11 +134,11 @@ function CardStock(props: any) {
                                 <div className="text-sm font-light text-zinc-400">Ruim</div>
                             </div>
                         </div>
-                        <div className="flex justify-center my-10">
-                            <img className="h-2/6 w-2/6" src={product.imagePath} alt="Pimentão" />
+                        <div className="h-full items-center flex justify-center m-3">
+                            <img className="h-[200px] w-[200px]" src={product.imagePath} alt="Pimentão" />
                         </div>
-                        <div className="flex gap-x-2">
-                            <Card extra="flex flex-col w-full px-2">
+                        <div className="grid grid-cols-2 gap-1">
+                            <div>
                                 <p className="text-xs font-medium text-zinc-400">
                                     Preço de venda:
                                 </p>
@@ -154,8 +157,8 @@ function CardStock(props: any) {
                                         series={lineChartDataTotalSpentStock}
                                     />
                                 </div>
-                            </Card>
-                            <Card extra="flex flex-col w-full px-2">
+                            </div>
+                            <div>
                                 <p className="text-xs font-medium text-zinc-400">
                                     Vendidos:
                                 </p>
@@ -177,32 +180,40 @@ function CardStock(props: any) {
                                         series={lineChartDataTotalSpentStock}
                                     />
                                 </div>
-                            </Card>
-                        </div>
-                        <Card extra="flex flex-col w-full">
-                            <p className="text-xs font-medium text-zinc-400">
-                                Preço de compra:
-                            </p>
-                            <div className="flex gap-x-2 mt-2 items-center">
-                                <p className="text-xl font-bold text-white">R$ 10,32</p>
-                                <div className="bg-red-600 rounded-md flex items-center gap-x-2 py-0.5">
-                                    <p className="text-xs font-bold text-white ml-2">
-                                        9.4 %
-                                    </p>
-                                    <ArrowUp2 variant="Bold" className="font-bold w-3 h-3 text-white mr-1" />
+                            </div>
+                            <div className="col-span-2">
+                                <p className="text-xs font-medium text-zinc-400">
+                                    Preço de compra:
+                                </p>
+                                <div className="flex gap-x-2 mt-2 items-center">
+                                    <p className="text-xl font-bold text-white">R$ 10,32</p>
+                                    <div className="bg-red-600 rounded-md flex items-center gap-x-2 py-0.5">
+                                        <p className="text-xs font-bold text-white ml-2">
+                                            9.4 %
+                                        </p>
+                                        <ArrowUp2 variant="Bold" className="font-bold w-3 h-3 text-white mr-1" />
+                                    </div>
+                                </div>
+                                <div >
+                                    <LineChart
+                                        options={lineChartOptionsTotalSpentStock}
+                                        series={lineChartDataTotalBuyPrice}
+                                    />
                                 </div>
                             </div>
-                            <div >
-                                <LineChart
-                                    options={lineChartOptionsTotalSpentStock}
-                                    series={lineChartDataTotalBuyPrice}
-                                />
-                            </div>
-                        </Card>
+                        </div>
+                        <button className={`bg-background-light mt-3 hidden xl:flex shadow-xl p-2 rounded-md text-white text-center items-center justify-center font-semibold w-full hover:bg-itens-light transition-colors`}>
+                            <Chart variant="Bold" className="font-bold w-5 h-5 text-white mr-1" />
+                            <p>
+                                Estatísticas detalhadas
+                            </p>
+                        </button>
                     </div>
                 </div>
+                <div className="col-span-3 shadow-lg">
+                    <TableStock eventClick={(val: any) => handleItem(val)} columns={TableStock_HEAD} rows={TableStock_ROWS} />
+                </div>
             </div>
-            <TableStock eventClick={(val: any) => handleItem(val)} columns={TableStock_HEAD} rows={TableStock_ROWS} />
         </>
     )
 }
