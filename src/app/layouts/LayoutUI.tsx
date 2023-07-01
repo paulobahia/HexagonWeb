@@ -23,7 +23,7 @@ const LayoutUI: React.FC = () => {
     }
 
     const goToStock = () => {
-        router.push('/stock')
+        router.push('/estoque')
     }
 
     const goToProducts = () => {
@@ -164,7 +164,7 @@ const LayoutUI: React.FC = () => {
                                     /
                                 </span>
                                 <a
-                                    className="text-sm font-normal text-navy-700 hover:underline text-white hover:text-white"
+                                    className="text-sm capitalize font-normal text-navy-700 hover:underline text-white hover:text-white"
                                 >
                                     {pathname.split('/')}
                                 </a>

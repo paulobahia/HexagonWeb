@@ -1,4 +1,4 @@
-export const TableStock_HEAD = ["Status", "Nome do Produto", "Data da Compra", "Em estoque", "Preço", ""];
+export const TableStock_HEAD = ["ID", "Nome do Produto", "Data da Compra", "Em estoque", "Status", "Preço", ""];
 
 export const TableStock_ROWS = [
     {
@@ -8,7 +8,8 @@ export const TableStock_ROWS = [
         imagePath: "https://d2r9epyceweg5n.cloudfront.net/stores/002/296/660/products/cebola-roxa-1200x10081-7d9fec4bfa7d73186416606965456243-640-0.png",
         status: "Bom",
         qtnNow: "72",
-        total: "377"
+        total: "377",
+        price: "R$ 7,20"
     },
     {
         id: "#5",
@@ -17,7 +18,8 @@ export const TableStock_ROWS = [
         imagePath: "https://ibassets.com.br/ib.item.image.big/b-a66b5e98f7c94c2c87286a03d4f41bd0.png",
         status: "Próximo de vencer",
         qtnNow: "200",
-        total: "250"
+        total: "250",
+        price: "R$ 5,59",
     },
     {
         id: "#7",
@@ -26,7 +28,8 @@ export const TableStock_ROWS = [
         imagePath: "https://trimais.vteximg.com.br/arquivos/ids/1048489-1000-1000/foto_original.jpg?v=638162962361000000",
         status: "Próximo de vencer",
         qtnNow: "65",
-        total: "453"
+        total: "453",
+        price: "R$ 1,11"
     },
     {
         id: "#2",
@@ -35,7 +38,8 @@ export const TableStock_ROWS = [
         imagePath: "https://engenhariadasessencias.com.br/loja/3481-thickbox_default/oleo-de-abacate-refinado.jpg",
         status: "Ruim",
         qtnNow: "10",
-        total: "185"
+        total: "185",
+        price: "R$ 2,92"
     },
     {
         id: "#9",
@@ -44,7 +48,8 @@ export const TableStock_ROWS = [
         imagePath: "https://frutasbrasilsul.com.br/wp-content/uploads/banana-nanica.png",
         status: "Bom",
         qtnNow: "28",
-        total: "196"
+        total: "196",
+        price: "R$ 3,23"
     },
     {
         id: "#7",
@@ -53,7 +58,8 @@ export const TableStock_ROWS = [
         imagePath: "https://trimais.vteximg.com.br/arquivos/ids/1048489-1000-1000/foto_original.jpg?v=638162962361000000",
         status: "Próximo de vencer",
         qtnNow: "7",
-        total: "580"
+        total: "580",
+        price: "R$ 1,11"
     },
     {
         id: "#9",
@@ -62,7 +68,8 @@ export const TableStock_ROWS = [
         imagePath: "https://frutasbrasilsul.com.br/wp-content/uploads/banana-nanica.png",
         status: "Bom",
         qtnNow: "28",
-        total: "196"
+        total: "196",
+        price: "R$ 3,23"
     },
     {
         id: "#3",
@@ -71,7 +78,8 @@ export const TableStock_ROWS = [
         imagePath: "https://s.cornershopapp.com/product-images/3420870.png?versionId=2B8KIaSTGZTmEOGjlbSmegY5MnOjfw6x",
         status: "Bom",
         qtnNow: "72",
-        total: "377"
+        total: "377",
+        price: "R$ 7,20"
     },
     {
         id: "#5",
@@ -80,7 +88,8 @@ export const TableStock_ROWS = [
         imagePath: "https://ibassets.com.br/ib.item.image.big/b-4512879528a74b3697eaf0c7d93dda65.png",
         status: "Próximo de vencer",
         qtnNow: "200",
-        total: "250"
+        total: "250",
+        price: "R$ 2,15",
     },
     {
         id: "#2",
@@ -89,7 +98,8 @@ export const TableStock_ROWS = [
         imagePath: "https://engenhariadasessencias.com.br/loja/3481-thickbox_default/oleo-de-abacate-refinado.jpg",
         status: "Ruim",
         qtnNow: "10",
-        total: "185"
+        total: "185",
+        price: "R$ 2,92"
     },
     {
         id: "#2",
@@ -98,7 +108,8 @@ export const TableStock_ROWS = [
         imagePath: "https://engenhariadasessencias.com.br/loja/3481-thickbox_default/oleo-de-abacate-refinado.jpg",
         status: "Bom",
         qtnNow: "10",
-        total: "185"
+        total: "185",
+        price: "R$ 2,92"
     },
     {
         id: "#5",
@@ -107,7 +118,8 @@ export const TableStock_ROWS = [
         imagePath: "https://ibassets.com.br/ib.item.image.big/b-4512879528a74b3697eaf0c7d93dda65.png",
         status: "Próximo de vencer",
         qtnNow: "200",
-        total: "250"
+        total: "250",
+        price: "R$ 2,15",
     },
     {
         id: "#9",
@@ -116,7 +128,8 @@ export const TableStock_ROWS = [
         imagePath: "https://frutasbrasilsul.com.br/wp-content/uploads/banana-nanica.png",
         status: "Bom",
         qtnNow: "28",
-        total: "196"
+        total: "196",
+        price: "R$ 3,23"
     },
     {
         id: "#3",
@@ -125,7 +138,8 @@ export const TableStock_ROWS = [
         imagePath: "https://s.cornershopapp.com/product-images/3420870.png?versionId=2B8KIaSTGZTmEOGjlbSmegY5MnOjfw6x",
         status: "Bom",
         qtnNow: "72",
-        total: "377"
+        total: "377",
+        price: "R$ 7,20"
     },
     {
         id: "#7",
@@ -134,7 +148,8 @@ export const TableStock_ROWS = [
         imagePath: "https://trimais.vteximg.com.br/arquivos/ids/1048489-1000-1000/foto_original.jpg?v=638162962361000000",
         status: "Próximo de vencer",
         qtnNow: "7",
-        total: "580"
+        total: "580",
+        price: "R$ 1,11"
     },
     {
         id: "#5",
@@ -143,7 +158,8 @@ export const TableStock_ROWS = [
         imagePath: "https://ibassets.com.br/ib.item.image.big/b-4512879528a74b3697eaf0c7d93dda65.png",
         status: "Próximo de vencer",
         qtnNow: "200",
-        total: "250"
+        total: "250",
+        price: "R$ 2,15",
     },
     {
         id: "#2",
@@ -152,7 +168,8 @@ export const TableStock_ROWS = [
         imagePath: "https://engenhariadasessencias.com.br/loja/3481-thickbox_default/oleo-de-abacate-refinado.jpg",
         status: "Bom",
         qtnNow: "10",
-        total: "185"
+        total: "185",
+        price: "R$ 2,92"
     },
     {
         id: "#7",
@@ -161,7 +178,8 @@ export const TableStock_ROWS = [
         imagePath: "https://trimais.vteximg.com.br/arquivos/ids/1048489-1000-1000/foto_original.jpg?v=638162962361000000",
         status: "Próximo de vencer",
         qtnNow: "7",
-        total: "580"
+        total: "580",
+        price: "R$ 1,11"
     },
     {
         id: "#3",
@@ -170,7 +188,8 @@ export const TableStock_ROWS = [
         imagePath: "https://s.cornershopapp.com/product-images/3420870.png?versionId=2B8KIaSTGZTmEOGjlbSmegY5MnOjfw6x",
         status: "Bom",
         qtnNow: "72",
-        total: "377"
+        total: "377",
+        price: "R$ 7,20"
     },
     {
         id: "#9",
@@ -179,6 +198,7 @@ export const TableStock_ROWS = [
         imagePath: "https://frutasbrasilsul.com.br/wp-content/uploads/banana-nanica.png",
         status: "Bom",
         qtnNow: "28",
-        total: "196"
+        total: "196",
+        price: "R$ 3,23"
     }
 ];

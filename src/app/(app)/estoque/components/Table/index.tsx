@@ -1,12 +1,13 @@
 'use client';
 import Card from "@/components/card";
-import { Edit, Trash } from "iconsax-react";
-import { useState } from "react";
+import { Chart, Edit, SearchStatus, Trash } from "iconsax-react";
+import { useEffect, useState } from "react";
 
-function TableStock(props: any) {
+function Table(props: any) {
     const { columns, rows, eventClick } = props
     const [paginaAtual, setPaginaAtual] = useState(1);
-    const itensPorPagina = 14;
+    const [search, setSearch] = useState("");
+    const itensPorPagina = 13;
 
     const CheckCondition = (status: string) => {
         switch (status) {
@@ -56,8 +57,32 @@ function TableStock(props: any) {
     const indiceFinal = indiceInicial + itensPorPagina;
     const itensDaPagina = rows.slice(indiceInicial, indiceFinal);
 
+    const Filter = () => {
+        return itensDaPagina.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+    }
+
     return (
         <div>
+            <div className="justify-between flex items-center p-6">
+                <div className="flex items-center max-w-md bg-background-light shadow-sm rounded-lg " x-data="{ search: '' }">
+                    <div className="w-full">
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="search" className="w-full bg-background-light px-2 py-1 text-white rounded-md focus:outline-none"
+                            placeholder="Pesquisar..." x-model="search" />
+                    </div>
+                    <div>
+                        <button className="bg-background-light hover:bg-itens-light transition-colors shadow-lg gap-2 p-2 rounded-r-md justify-between cursor-pointer flex items-center">
+                            <SearchStatus className="h-5 w-5 text-white" color="rgb(212 212 216)" variant="Bulk" />
+                        </button>
+                    </div>
+                </div>
+                <div className="w-full max-w-[180px]">
+                    <button className={`bg-background-light flex shadow-xl p-2 rounded-md text-white text-center text-sm items-center justify-center font-medium w-full hover:bg-itens-light transition-colors`}>
+                        <p>
+                            Adicionar item
+                        </p>
+                    </button>
+                </div>
+            </div>
             <Card className="overflow-hidden flex w-full max-w-screen-2xl">
                 <table className="w-full table-auto text-left">
                     <thead>
@@ -74,12 +99,12 @@ function TableStock(props: any) {
                         </tr>
                     </thead>
                     <tbody>
-                        {itensDaPagina.map(({ id, name, expirationDate, status, imagePath, qtnNow, total }: any, index: number) => {
+                        {Filter().map(({ id, name, expirationDate, status, qtnNow, total, price }: any, index: number) => {
                             const isLast = index === itensDaPagina.length - 1;
                             const classes = isLast ? "p-3" : "p-3 border-b border-zinc-300/40";
 
                             return (
-                                <tr onClick={() => eventClick(itensDaPagina[index])} className="hover:cursor-pointer hover:bg-white/5 " key={name}>
+                                <tr onClick={() => eventClick(itensDaPagina[index])} className="hover:cursor-pointer hover:bg-white/5 " key={index}>
                                     <td className={classes}>
                                         <div className="font-bold text-sm text-zinc-300">
                                             {id}
@@ -119,6 +144,11 @@ function TableStock(props: any) {
                                         </div>
                                     </td>
                                     <td className={classes}>
+                                        <div className="font-medium text-sm text-zinc-300">
+                                            {price}
+                                        </div>
+                                    </td>
+                                    <td className={classes}>
                                         <div className="flex items-center justify-center gap-x-2">
                                             <button className="p-1 rounded-md hover:bg-itens-light">
                                                 <Trash className="h-5 w-5" color="rgb(212 212 216)" variant="Bold" />
@@ -134,8 +164,8 @@ function TableStock(props: any) {
                     </tbody>
                 </table>
             </Card>
-        </div>
+        </div >
     )
 }
 
-export default TableStock
+export default Table
