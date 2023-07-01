@@ -1,9 +1,13 @@
 'use client';
+import { Item } from "@/app/(app)/types/TableItens";
 import Card from "@/components/card";
 import { Chart, Edit, SearchStatus, Trash } from "iconsax-react";
+import { type } from "os";
 import { useEffect, useState } from "react";
 
 function Table(props: any) {
+
+
     const { columns, rows, eventClick } = props
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [search, setSearch] = useState("");
@@ -58,7 +62,7 @@ function Table(props: any) {
     const itensDaPagina = rows.slice(indiceInicial, indiceFinal);
 
     const Filter = () => {
-        return itensDaPagina.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+        return itensDaPagina.filter((item: Item) => item.name.toLowerCase().includes(search.toLowerCase()))
     }
 
     return (
