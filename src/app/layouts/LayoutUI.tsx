@@ -41,7 +41,7 @@ const LayoutUI: React.FC = () => {
 
     return (
         <>
-            <div className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16 fixed z-20 ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
+            <div className={`min-h-screen ${openSideBar ? 'sm:w-72' : 'sm:20'} transition-all w-16 z-20 ease-in duration-500 bg-background-secondary overflow-hidden rounded-r-xl shadow`}>
                 <div className={`w-full bg-background-light shadow flex items-center ${openSideBar ? 'justify-between' : "justify-center"} p-4 border-b border-zinc-400 border-opacity-30`}>
                     {openSideBar && <div className="space-x-2 flex justify-center items-center">
                         <Image src={logo} alt="Logo Hexagon" className="w-10 h-10" />
@@ -149,38 +149,7 @@ const LayoutUI: React.FC = () => {
                 </div>
             </div> */}
             </div>
-            <nav className="sticky ml-20 mr-5 top-4 z-10 flex flex-row flex-wrap items-center justify-between rounded-xl bg-background-secondary/30 p-2 backdrop-blur-xl">
-                <div className="ml-[6px]">
-                    <div className="h-6 w-[224px] pt-1">
-                        <a
-                            className="text-sm font-normal text-navy-700 hover:underline text-white hover:text-white"
-                            href="/home"
-                        >
-                            Home
-                        </a>
-                        {pathname != '/home' &&
-                            (<>
-                                <span className="mx-1 text-sm text-navy-700 hover:text-navy-700 text-white">
-                                    /
-                                </span>
-                                <a
-                                    className="text-sm capitalize font-normal text-navy-700 hover:underline text-white hover:text-white"
-                                >
-                                    {pathname.split('/')}
-                                </a>
-                            </>)
-                        }
-
-                    </div>
-                    <p className="shrink text-[33px] capitalize text-navy-700 text-white">
-                        <a
-                            className="font-bold capitalize hover:text-navy-700 hover:text-white"
-                        >
-                            {pathname.split('/')}
-                        </a>
-                    </p>
-                </div>
-            </nav>
+            
         </>
     )
 }

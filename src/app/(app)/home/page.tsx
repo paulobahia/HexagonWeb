@@ -7,7 +7,7 @@ import DailyTraffic from "./components/DailyTraffic";
 export default function Home() {
 
   return (
-    <main className="ml-16 flex-1 px-5 py-3">
+    <main className="flex-1 px-5 py-3">
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         <Widget
           icon={<Chart1 className="h-7 w-7" color="#d9e3f0" variant="Bulk" />}

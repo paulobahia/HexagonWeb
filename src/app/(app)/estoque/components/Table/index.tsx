@@ -83,7 +83,7 @@ function Table(props: any) {
                     </button>
                 </div>
             </div>
-            <Card className="overflow-hidden flex w-full max-w-screen-2xl">
+            <Card className="overflow-auto flex w-full max-w-screen-2xl">
                 <table className="w-full table-auto text-left">
                     <thead>
                         <tr>

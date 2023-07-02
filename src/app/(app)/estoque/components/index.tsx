@@ -93,7 +93,7 @@ function MainStock(props: any) {
     })
 
     return (
-        <main className="ml-16 flex-1 px-5 py-3">
+        <main className=" flex-1 px-5 py-3">
             <div className="text-black mt-3 rounded-t-lg bg-background-secondary rounded-md">
                 <div className="grid grid-cols-4">
                     <div className="hidden xl:block">
