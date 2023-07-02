@@ -172,7 +172,7 @@ function Table(props: any) {
                         </svg>
                     </button>
                     {Array.from({ length: totalPages }, (_, index) => (
-                        <button onClick={() => goToPage(index + 1)} className="relative z-10 inline-flex items-center  px-4 py-2 ring-1 ring-inset ring-gray-500 text-sm font-medium hover:bg-itens-primary transition-colors hover:ring-gray-300 text-white hover:font-semibold focus:z-20 ">{index + 1}</button>
+                        <button key={index} onClick={() => goToPage(index + 1)} className="relative z-10 inline-flex items-center  px-4 py-2 ring-1 ring-inset ring-gray-500 text-sm font-medium hover:bg-itens-primary transition-colors hover:ring-gray-300 text-white hover:font-semibold focus:z-20 ">{index + 1}</button>
                     ))}
                     <button onClick={goToNextPage} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-500 hover:bg-itens-primary transition-colors hover:ring-gray-300 hover:text-gray-50 focus:z-20 focus:outline-offset-0">
                         <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
