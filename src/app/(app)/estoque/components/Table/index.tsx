@@ -1,84 +1,80 @@
 'use client';
 import { Item } from "@/app/(app)/types/TableItens";
 import Card from "@/components/card";
-import { Chart, Edit, SearchStatus, Trash } from "iconsax-react";
-import { type } from "os";
-import { useEffect, useState } from "react";
+import { Edit, Trash } from "iconsax-react";
+import { useState } from "react";
+import SeachInput from "../Input";
 
 function Table(props: any) {
 
-
     const { columns, rows, eventClick } = props
-    const [paginaAtual, setPaginaAtual] = useState(1);
-    const [search, setSearch] = useState("");
-    const itensPorPagina = 13;
 
-    const CheckCondition = (status: string) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [data, setData] = useState(rows);
+    const [filterValue, setFilterValue] = useState('');
+
+    const itemsPerPage = 13;
+    const currentPageData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const totalPages = Math.ceil(rows.length / itemsPerPage);
+
+    const checkCondition = (status: string) => {
         switch (status) {
             case "Bom":
-                return (
-                    <div className="bg-success-light p-1 mt-1 animate-pulse rounded-full" />
-                )
+                return <div className="bg-success-light p-1 mt-1 animate-pulse rounded-full" />;
             case "Ruim":
-                return (
-                    <div className="bg-danger-light p-1 mt-1 animate-pulse rounded-full" />
-                )
+                return <div className="bg-danger-light p-1 mt-1 animate-pulse rounded-full" />;
             case "Próximo de vencer":
-                return (
-                    <div className="bg-warning-light p-1 mt-1 animate-pulse rounded-full" />
-                )
+                return <div className="bg-warning-light p-1 mt-1 animate-pulse rounded-full" />;
             default:
-                break;
+                return null;
         }
-    }
+    };
 
     const checkQuantityStock = (qtnNow: number, total: number) => {
-        var percent = (qtnNow / total) * 100
+        const percent = (qtnNow / total) * 100;
 
         if (percent <= 10) {
-            return (
-                <div className={`h-1 bg-danger-light w-[6%]`}></div>
-            )
+            return <div className="h-1 bg-danger-light w-[6%]" />;
+        } else if (percent < 45) {
+            return <div className="h-1 bg-warning-light w-[35%]" />;
+        } else if (percent < 80) {
+            return <div className="h-1 bg-blue-400 w-[60%]" />;
+        } else {
+            return <div className="h-1 bg-blue-600 w-[80%]" />;
         }
-        else if (percent >= 10 && percent < 45) {
-            return (
-                <div className={`h-1 bg-warning-light w-[35%]`}></div>
-            )
-        }
-        else if (percent >= 45 && percent < 80) {
-            return (
-                <div className={`h-1 bg-blue-400 w-[60%]`}></div>
-            )
-        }
-        else if (percent <= 80) {
-            return (
-                <div className={`h-1 bg-blue-600 w-[80%]`}></div>
-            )
-        }
-    }
+    };
 
-    const indiceInicial = (paginaAtual - 1) * itensPorPagina;
-    const indiceFinal = indiceInicial + itensPorPagina;
-    const itensDaPagina = rows.slice(indiceInicial, indiceFinal);
+    const handleItem = (val: string) => {
+        setFilterValue(val);
+        setCurrentPage(1);
+    };
 
-    const Filter = () => {
-        return itensDaPagina.filter((item: Item) => item.name.toLowerCase().includes(search.toLowerCase()))
-    }
+    const filteredData = filterValue
+        ? currentPageData.filter((item: Item) =>
+            item.name.toLowerCase().includes(filterValue.toLowerCase())
+        )
+        : currentPageData;
+
+    const goToNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const goToPreviousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const goToPage = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
 
     return (
         <div>
             <div className="justify-between flex items-center p-6">
-                <div className="flex items-center max-w-md bg-background-light shadow-sm rounded-lg " x-data="{ search: '' }">
-                    <div className="w-full">
-                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="search" className="w-full bg-background-light px-2 py-1 text-white rounded-md focus:outline-none"
-                            placeholder="Pesquisar..." x-model="search" />
-                    </div>
-                    <div>
-                        <button className="bg-background-light hover:bg-itens-light transition-colors shadow-lg gap-2 p-2 rounded-r-md justify-between cursor-pointer flex items-center">
-                            <SearchStatus className="h-5 w-5 text-white" color="rgb(212 212 216)" variant="Bulk" />
-                        </button>
-                    </div>
-                </div>
+                <SeachInput filter={handleItem} />
                 <div className="w-full max-w-[180px]">
                     <button className={`bg-background-light flex shadow-xl p-2 rounded-md text-white text-center text-sm items-center justify-center font-medium w-full hover:bg-itens-light transition-colors`}>
                         <p>
@@ -103,12 +99,12 @@ function Table(props: any) {
                         </tr>
                     </thead>
                     <tbody>
-                        {Filter().map(({ id, name, expirationDate, status, qtnNow, total, price }: any, index: number) => {
-                            const isLast = index === itensDaPagina.length - 1;
+                        {filteredData.map(({ id, name, expirationDate, status, qtnNow, total, price }: any, index: number) => {
+                            const isLast = index === currentPageData.length - 1;
                             const classes = isLast ? "p-3" : "p-3 border-b border-zinc-300/40";
 
                             return (
-                                <tr onClick={() => eventClick(itensDaPagina[index])} className="hover:cursor-pointer hover:bg-white/5 " key={index}>
+                                <tr onClick={() => eventClick(currentPageData[index])} className="hover:cursor-pointer hover:bg-white/5 " key={index}>
                                     <td className={classes}>
                                         <div className="font-bold text-sm text-zinc-300">
                                             {id}
@@ -119,7 +115,7 @@ function Table(props: any) {
                                             {name}
                                         </div>
                                     </td>
-                                    <td className={classes}>
+                                    <td className={`${classes}`}>
                                         <div className="font-medium text-sm text-white">
                                             {expirationDate}
                                         </div>
@@ -144,7 +140,7 @@ function Table(props: any) {
                                             <div className="font-normal text-sm text-white">
                                                 {status}
                                             </div>
-                                            {CheckCondition(status)}
+                                            {checkCondition(status)}
                                         </div>
                                     </td>
                                     <td className={classes}>
@@ -168,6 +164,23 @@ function Table(props: any) {
                     </tbody>
                 </table>
             </Card>
+            <div className="flex border-t border-zinc-300/20 justify-end">
+                <nav className="p-3 inline-flex rounded-md shadow-sm">
+                    <button onClick={goToPreviousPage} className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-500 hover:bg-itens-primary transition-colors hover:ring-gray-300 hover:text-gray-50 focus:z-20 focus:outline-offset-0">
+                        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button onClick={() => goToPage(index + 1)} className="relative z-10 inline-flex items-center  px-4 py-2 ring-1 ring-inset ring-gray-500 text-sm font-medium hover:bg-itens-primary transition-colors hover:ring-gray-300 text-white hover:font-semibold focus:z-20 ">{index + 1}</button>
+                    ))}
+                    <button onClick={goToNextPage} className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-500 hover:bg-itens-primary transition-colors hover:ring-gray-300 hover:text-gray-50 focus:z-20 focus:outline-offset-0">
+                        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </nav>
+            </div>
         </div >
     )
 }
